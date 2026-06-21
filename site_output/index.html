@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beast Mode Fitness — gym in Salem</title>
+  <meta name="description" content="Beast Mode Fitness is a gym located in Salem. Contact us at info@beastmode.com or 9344556677.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Playfair Display', system-ui, sans-serif;
+      background: #1a0a00;
+      color: #f0f0f0;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: #1a0a00;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+      backdrop-filter: blur(10px);
+    }
+    .nav-brand {
+      font-size: 1.2rem; font-weight: 700;
+      color: #f0f0f0;
+      text-decoration: none;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-brand::before {
+      content: '';
+      width: 10px; height: 10px;
+      background: #ff8c00;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      color: #aaaaaa; text-decoration: none;
+      font-size: 0.9rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #ff8c00; }
+    .nav-cta {
+      background: #ff8c00; color: #fff;
+      padding: 8px 20px; border-radius: 6px;
+      text-decoration: none; font-weight: 600; font-size: 0.9rem;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* FOOTER */
+    footer {
+      background: rgba(255,140,0,0.08);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 40px;
+      text-align: center;
+    }
+    footer p { color: #aaaaaa; font-size: 0.875rem; margin-top: 8px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      section[class] { padding: 40px 20px !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-brand" href="#">Beast Mode Fitness</a>
+    <ul class="nav-links">
+      
+        
+        <li><a href="/home">Home</a></li>
+        
+        <li><a href="/services">Services</a></li>
+        
+        <li><a href="/about">About</a></li>
+        
+      
+    </ul>
+    <a class="nav-cta" href="mailto:info@beastmode.com">Contact Us</a>
+  </nav>
+
+
+  <section class="hero" style="background:linear-gradient(135deg,#3d1a00,#ff8c00);padding:80px 60px;display:flex;align-items:center;gap:60px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:280px;">
+      <p class="badge" style="color:#ff8c00;text-transform:uppercase;letter-spacing:2px;font-size:0.85rem;font-weight:600;">gym</p>
+      <h1 style="color:#fff;font-size:clamp(2.2rem,5vw,3.5rem);margin:16px 0;line-height:1.15;">Transform Your Body</h1>
+      <p style="color:rgba(255,255,255,0.8);font-size:1rem;line-height:1.7;margin-bottom:32px;">
+        Join the Beast Mode community today!
+      </p>
+      <a href="/signup" style="background:#ff8c00;color:#fff;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700;display:inline-block;">Sign Up Now</a>
+    </div>
+    <div style="flex:0 0 260px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:28px;backdrop-filter:blur(8px);">
+      <p style="color:rgba(255,255,255,0.6);font-size:0.8rem;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;">Quick Info</p>
+      <div style="color:#fff;display:flex;flex-direction:column;gap:10px;font-size:0.95rem;">
+        <span>📍 Salem</span>
+        <span>📞 9344556677</span>
+        <span>✉️ info@beastmode.com</span>
+      </div>
+    </div>
+  </section>
+
+  
+  <section style="padding:60px 40px;background:rgba(255,140,0,0.08);">
+    <h2 style="color:#ff8c00;font-size:1.8rem;margin-bottom:8px;text-align:center;">Categories</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px;max-width:900px;margin:24px auto 0;">
+      
+      <div style="background:#1a0a00;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:16px;text-align:center;">
+        
+        <img src="https://example.com/fitness-classes.jpg" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:10px;" />
+        
+        <p style="color:#f0f0f0;font-weight:600;font-size:0.9rem;">Fitness Classes</p>
+      </div>
+      
+      <div style="background:#1a0a00;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:16px;text-align:center;">
+        
+        <img src="https://example.com/personal-training.jpg" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:10px;" />
+        
+        <p style="color:#f0f0f0;font-weight:600;font-size:0.9rem;">Personal Training</p>
+      </div>
+      
+    </div>
+  </section>
+  
+
+  
+  <section style="padding:60px 40px;background:#1a0a00;">
+    <h2 style="color:#ff8c00;font-size:1.8rem;margin-bottom:8px;text-align:center;">Our Products</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px;max-width:1000px;margin:24px auto 0;">
+      
+      <div style="background:rgba(255,140,0,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
+        
+        <img src="https://example.com/monthly-membership.jpg" style="width:100%;height:180px;object-fit:cover;" />
+        
+        <div style="padding:16px;flex-grow:1;display:flex;flex-direction:column;gap:8px;">
+          <span style="font-size:0.75rem;color:#ff8c00;text-transform:uppercase;">Fitness Classes</span>
+          <h3 style="color:#f0f0f0;font-size:1.05rem;font-weight:600;margin:0;">Monthly Membership</h3>
+          <p style="color:#aaaaaa;font-size:0.85rem;line-height:1.4;margin:0;flex-grow:1;">Access to all fitness classes and facilities</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;">
+            <span style="font-weight:700;color:#f0f0f0;">USD99.99</span>
+            
+            <span style="color:#ffd700;font-size:0.9rem;">★ 4.5</span>
+            
+          </div>
+        </div>
+      </div>
+      
+      <div style="background:rgba(255,140,0,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
+        
+        <img src="https://example.com/personal-training-session.jpg" style="width:100%;height:180px;object-fit:cover;" />
+        
+        <div style="padding:16px;flex-grow:1;display:flex;flex-direction:column;gap:8px;">
+          <span style="font-size:0.75rem;color:#ff8c00;text-transform:uppercase;">Personal Training</span>
+          <h3 style="color:#f0f0f0;font-size:1.05rem;font-weight:600;margin:0;">Personal Training Session</h3>
+          <p style="color:#aaaaaa;font-size:0.85rem;line-height:1.4;margin:0;flex-grow:1;">One-on-one training with a certified trainer</p>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;">
+            <span style="font-weight:700;color:#f0f0f0;">USD49.99</span>
+            
+            <span style="color:#ffd700;font-size:0.9rem;">★ 4.8</span>
+            
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+  
+
+  <section style="padding:60px 40px;background:#1a0a00;">
+    <h2 style="color:#ff8c00;font-size:1.8rem;margin-bottom:8px;text-align:center;">What We Offer</h2>
+    <p style="color:#aaaaaa;text-align:center;margin-bottom:40px;font-size:0.95rem;">Expert services tailored to your needs.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;max-width:900px;margin:0 auto;">
+      
+        
+        <div style="background:rgba(255,140,0,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;text-align:center;">
+          <div style="font-size:2rem;margin-bottom:12px;">🔧</div>
+          <p style="color:#f0f0f0;font-weight:600;font-size:0.95rem;">crossfit</p>
+        </div>
+        
+        <div style="background:rgba(255,140,0,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;text-align:center;">
+          <div style="font-size:2rem;margin-bottom:12px;">🔧</div>
+          <p style="color:#f0f0f0;font-weight:600;font-size:0.95rem;">yoga</p>
+        </div>
+        
+        <div style="background:rgba(255,140,0,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;text-align:center;">
+          <div style="font-size:2rem;margin-bottom:12px;">🔧</div>
+          <p style="color:#f0f0f0;font-weight:600;font-size:0.95rem;">weight lifting</p>
+        </div>
+        
+      
+    </div>
+    
+  </section>
+
+  
+  <section style="padding:60px 40px;background:rgba(255,140,0,0.08);">
+    <h2 style="color:#ff8c00;font-size:1.8rem;text-align:center;margin-bottom:8px;">Special Deals</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px;max-width:900px;margin:24px auto 0;">
+      
+      <div style="background:#1a0a00;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;">
+        
+        <span style="position:absolute;top:12px;right:12px;background:#e53935;color:#fff;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:700;">
+          10% OFF
+        </span>
+        
+        <h3 style="color:#f0f0f0;font-size:1.1rem;font-weight:600;margin:0 60px 0 0;">New Member Discount</h3>
+        <p style="color:#aaaaaa;font-size:0.85rem;line-height:1.4;margin:0;">10% off your first month&#39;s membership</p>
+        
+        <img src="https://example.com/new-member-discount.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:8px;" />
+        
+      </div>
+      
+      <div style="background:#1a0a00;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;">
+        
+        <span style="position:absolute;top:12px;right:12px;background:#e53935;color:#fff;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:700;">
+          100% OFF
+        </span>
+        
+        <h3 style="color:#f0f0f0;font-size:1.1rem;font-weight:600;margin:0 60px 0 0;">Refer a Friend</h3>
+        <p style="color:#aaaaaa;font-size:0.85rem;line-height:1.4;margin:0;">Get a free month&#39;s membership for every friend you refer</p>
+        
+        <img src="https://example.com/refer-a-friend.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:8px;" />
+        
+      </div>
+      
+    </div>
+  </section>
+  
+
+  <section style="padding:60px 40px;background:#1a0a00;">
+    <h2 style="color:#ff8c00;font-size:1.8rem;text-align:center;margin-bottom:40px;">Get In Touch</h2>
+    <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;max-width:800px;margin:0 auto;">
+      <div style="background:rgba(255,140,0,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:28px;flex:1;min-width:200px;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:12px;">📍</div>
+        <p style="color:#aaaaaa;font-size:0.85rem;margin-bottom:6px;">Location</p>
+        <p style="color:#f0f0f0;font-weight:600;">Salem</p>
+      </div>
+      <div style="background:rgba(255,140,0,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:28px;flex:1;min-width:200px;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:12px;">📞</div>
+        <p style="color:#aaaaaa;font-size:0.85rem;margin-bottom:6px;">Phone</p>
+        <a href="tel:9344556677" style="color:#ff8c00;font-weight:600;text-decoration:none;">9344556677</a>
+      </div>
+      <div style="background:rgba(255,140,0,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:28px;flex:1;min-width:200px;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:12px;">✉️</div>
+        <p style="color:#aaaaaa;font-size:0.85rem;margin-bottom:6px;">Email</p>
+        <a href="mailto:info@beastmode.com" style="color:#ff8c00;font-weight:600;text-decoration:none;word-break:break-all;">info@beastmode.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <strong style="color:#f0f0f0;font-size:1.05rem;">Beast Mode Fitness</strong>
+    
+    <p style="max-width:600px;margin:10px auto;line-height:1.6;color:#aaaaaa;font-size:0.9rem;">Beast Mode Fitness is a gym located in Salem, dedicated to helping you achieve your fitness goals</p>
+    
+    <p style="margin-top:8px;">gym &bull; Salem</p>
+    <p style="margin-top:16px;">
+      📞 <a href="tel:9344556677" style="color:#ff8c00;text-decoration:none;">9344556677</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      ✉️ <a href="mailto:info@beastmode.com" style="color:#ff8c00;text-decoration:none;">info@beastmode.com</a>
+    </p>
+    
+    
+    
+    <p style="margin-top:12px;">
+      
+      
+      <a href="#" style="color:#ff8c00;text-decoration:none;margin:0 8px;">{&#39;label&#39;: &#39;Facebook&#39;, &#39;link&#39;: &#39;https://www.facebook.com/beastmodefitness&#39;}</a>
+      
+      
+      
+      <a href="#" style="color:#ff8c00;text-decoration:none;margin:0 8px;">{&#39;label&#39;: &#39;Instagram&#39;, &#39;link&#39;: &#39;https://www.instagram.com/beastmodefitness&#39;}</a>
+      
+      
+      
+      <a href="#" style="color:#ff8c00;text-decoration:none;margin:0 8px;">{&#39;label&#39;: &#39;Twitter&#39;, &#39;link&#39;: &#39;https://www.twitter.com/beastmodefitness&#39;}</a>
+      
+      
+    </p>
+    
+    
+    <p style="margin-top:20px;">2024 Beast Mode Fitness. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

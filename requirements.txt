@@ -1,0 +1,7 @@
+python-telegram-bot>=22.8
+langchain
+langchain-groq
+python-dotenv
+jinja2
+requests
+streamlit

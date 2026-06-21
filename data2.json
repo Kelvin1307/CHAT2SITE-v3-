@@ -1,0 +1,84 @@
+{
+  "business_name": "",
+  "business_type": "",
+  "services": [],
+  "city": "",
+  "email": "",
+  "phone": "",
+  "color_theme": "",
+  "design_style": "",
+  "brand": {
+    "name": "",
+    "tagline": ""
+  },
+  "topbar": {
+    "message": ""
+  },
+  "cart": {
+    "count": 0
+  },
+  "nav": [
+    {
+      "label": "",
+      "link": ""
+    }
+  ],
+  "hero": {
+    "title": "",
+    "subtitle": "",
+    "image": "",
+    "cta": {
+      "text": "",
+      "link": ""
+    }
+  },
+  "categories": [
+    {
+      "id": "",
+      "name": "",
+      "image": ""
+    }
+  ],
+  "products": [
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "price": 0,
+      "currency": "",
+      "image": "",
+      "category": "",
+      "rating": 0,
+      "features": [
+        ""
+      ]
+    }
+  ],
+  "services_section": {
+    "title": "",
+    "description": "",
+    "features": [
+      ""
+    ],
+    "stats": {
+      "clients_served": 0,
+      "happy_customers": 0,
+      "years_in_business": 0
+    }
+  },
+  "deals": [
+    {
+      "id": "",
+      "title": "",
+      "description": "",
+      "discount": 0,
+      "image": ""
+    }
+  ],
+  "footer": {
+    "about": "",
+    "links": [],
+    "social": [],
+    "copyright": ""
+  }
+}
