@@ -108,7 +108,7 @@ def run_publish() -> None:
         output_dir = render_page(website_json, output_dir="site_output", strategy="smart")
 
         st.session_state.status = "🚀 Step 4/4: Deploying your website live on the web..."
-        live_url = deploy_site(output_dir)
+        live_url = deploy_site(output_dir, business_name=website_json.get("business_name"))
 
         st.session_state.publish_url = live_url
         st.session_state.chat_history.append(("assistant", f"🎉 Your website is live!\n{live_url}"))

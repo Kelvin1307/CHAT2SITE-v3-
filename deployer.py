@@ -1,7 +1,8 @@
 import os
-import uuid
-from dotenv import load_dotenv
+import re
+import random
 import hashlib
+from dotenv import load_dotenv
 import requests
 from pathlib import Path
 
@@ -14,6 +15,8 @@ load_dotenv()
 
 # keep existing env variable names (unchanged)
 SITE_ID = os.getenv("SITE_ID")  # optional fallback
+
+SITE_SUFFIX_STATE: dict[str, dict] = {}
 
 def get_netlify_auth_token() -> str:
     token = None
@@ -45,8 +48,52 @@ def _sha1(path: Path) -> str:
     return h.hexdigest()
 
 
-def _create_site() -> dict:
-    site_name = f"chat2site-{uuid.uuid4().hex[:6]}"
+def _normalize_site_name(name: str) -> str:
+    normalized = re.sub(r"[^a-z0-9]+", "-", name.lower())
+    normalized = re.sub(r"-+", "-", normalized).strip("-")
+    return normalized or "chat2site"
+
+
+def _site_name_seed(name: str) -> int:
+    digest = hashlib.sha256(name.encode("utf-8")).digest()
+    return int.from_bytes(digest[:8], "big")
+
+
+def _shuffle_pool(seed: int) -> list[int]:
+    pool = list(range(1000, 10000))
+    rnd = random.Random(seed)
+    for i in range(len(pool) - 1, 0, -1):
+        j = rnd.randint(0, i)
+        pool[i], pool[j] = pool[j], pool[i]
+    return pool
+
+
+def _next_site_suffix(name: str) -> str:
+    normalized = _normalize_site_name(name)
+    state = SITE_SUFFIX_STATE.get(normalized)
+    if state is None:
+        state = {
+            "name": normalized,
+            "seed": _site_name_seed(normalized),
+            "pool": _shuffle_pool(_site_name_seed(normalized)),
+            "index": 0,
+        }
+        SITE_SUFFIX_STATE[normalized] = state
+
+    if state["index"] >= len(state["pool"]):
+        state["seed"] += 1
+        state["pool"] = _shuffle_pool(state["seed"])
+        state["index"] = 0
+
+    suffix = state["pool"][state["index"]]
+    state["index"] += 1
+    return f"{suffix:04d}"
+
+
+def _create_site(business_name: str | None = None) -> dict:
+    normalized_name = _normalize_site_name(business_name or "chat2site")
+    suffix = _next_site_suffix(normalized_name)
+    site_name = f"{normalized_name}-{suffix}"
 
     r = requests.post(
         f"{NETLIFY_API}/sites",
@@ -57,13 +104,13 @@ def _create_site() -> dict:
     return r.json()
 
 
-def deploy_site(folder: str) -> str:
+def deploy_site(folder: str, business_name: str | None = None) -> str:
     """
     Deploys a folder to Netlify and returns the live URL
     """
 
     # 1️⃣ Create site automatically
-    site = _create_site()
+    site = _create_site(business_name=business_name)
     site_id = site["id"]
     site_url = site["url"]
 
