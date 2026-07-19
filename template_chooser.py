@@ -47,46 +47,99 @@ TOTAL_TEMPLATES = 20
 # override (or fine-tune) the business-type group so the chosen template
 # better matches the user's visual preference.
 STYLE_OVERRIDES: dict[str, tuple[int, int]] = {
-    "blue":         (1, 1),
-    "red":          (2, 2),
-    "green":        (3, 3),
-    "pink":         (4, 4),
-    "orange":       (5, 5),
-    "violet":       (6, 6),
-    "teal":         (7, 7),
-    "indigo":       (8, 8),
-    "cyan":         (9, 9),
-    "lime":         (10, 10),
-    "amber":        (11, 11),
-    "magenta":      (12, 12),
-    "emerald":      (13, 13),
-    "slate":        (14, 14),
-    "coral":        (15, 15),
-    "navy":         (16, 16),
-    "purple":       (17, 17),
-    "gold":         (18, 18),
-    "rose":         (19, 19),
-    "black":        (20, 20),
-    # Style keywords
-    "dark":         (20, 20),
-    "white":        (14, 14),
-    "minimal":      (20, 20),
-    "clean":        (14, 14),
-    "light":        (14, 14),
-    "pastel":       (4, 4),
-    "neon":         (9, 9),
-    "vibrant":      (9, 9),
-    "colorful":     (17, 17),
-    "bright":       (9, 9),
-    "bold":         (2, 2),
-    "gradient":     (1, 1),
-    "luxury":       (6, 6),
-    "elegant":      (18, 18),
-    "professional": (8, 8),
-    "corporate":    (16, 16),
-    "editorial":    (14, 14),
-    "modern":       (1, 1),
+    "blue":     (1, 1),
+    "navy":     (1, 1),
+    "sky":      (1, 1),
+    "azure":    (1, 1),
+
+    "red":      (2, 2),
+    "maroon":   (2, 2),
+    "crimson":  (2, 2),
+    "scarlet":  (2, 2),
+
+    "green":    (3, 3),
+    "olive":    (3, 3),
+    "mint":     (3, 3),
+    "forest":   (3, 3),
+
+    "pink":     (4, 4),
+    "rose":     (4, 4),
+    "fuchsia":  (4, 4),
+    "salmon":   (4, 4),
+
+    "orange":   (5, 5),
+    "amber":    (5, 5),
+    "tangerine":(5, 5),
+    "rust":     (5, 5),
+
+    "violet":   (6, 6),
+    "purple":   (6, 6),
+    "lavender": (6, 6),
+    "plum":     (6, 6),
+
+    "teal":     (7, 7),
+    "cyan":     (7, 7),
+    "turquoise":(7, 7),
+    "aqua":     (7, 7),
+
+    "indigo":   (8, 8),
+    "midnight": (8, 8),
+
+    "cyan":     (9, 9),
+    "light blue": (9, 9),
+    "aqua blue": (9, 9),
+
+    "lime":     (10, 10),
+    "chartreuse":(10, 10),
+    "neon green":(10, 10),
+    "yellow-green":(10, 10),
+
+    "brown":    (11, 11),
+    "tan":      (11, 11),
+    "beige":    (11, 11),
+    "chocolate":(11, 11),
+    "coffee":   (11, 11),
+
+    "magenta":  (12, 12),
+    "hot pink": (12, 12),
+    "purple-pink":(12, 12),
+
+    "emerald":  (13, 13),
+    "jade":     (13, 13),
+
+    "slate":    (14, 14),
+    "gray":     (14, 14),
+    "charcoal": (14, 14),
+    "stone":    (14, 14),
+
+    "coral":    (15, 15),
+    "peach":    (15, 15),
+    "pink-orange":(15, 15),
+
+    "navy":     (16, 16),
+    "dark blue":(16, 16),
+    "midnight blue":(16, 16),
+
+    # 17
+    "purple":   (17, 17),
+    "violet":   (17, 17),
+    "lavender": (17, 17),
+    "plum":     (17, 17),
+
+    "gold":     (18, 18),
+    "yellow":   (18, 18),
+    "mustard":  (18, 18),
+
+    "rose":     (19, 19),
+    "blush":    (19, 19),
+    "peach pink": (19, 19),
+
+    "black":    (20, 20),
+    "ebony":    (20, 20),
+    "jet":      (20, 20),
+
 }
+
 
 # Business-type keyword → template group (1-indexed ranges)
 KEYWORD_GROUPS: dict[str, tuple[int, int]] = {
