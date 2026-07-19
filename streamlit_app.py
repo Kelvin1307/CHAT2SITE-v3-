@@ -111,7 +111,10 @@ def run_publish() -> None:
         live_url = deploy_site(output_dir, business_name=website_json.get("business_name"))
 
         st.session_state.publish_url = live_url
-        st.session_state.chat_history.append(("assistant", f"🎉 Your website is live!\n{live_url}"))
+        if live_url.startswith("Local preview"):
+            st.session_state.chat_history.append(("assistant", f"🛠️ Your site was generated locally.\n{live_url}"))
+        else:
+            st.session_state.chat_history.append(("assistant", f"🎉 Your website is live!\n{live_url}"))
     except Exception as exc:
         st.session_state.last_error = str(exc)
         st.session_state.chat_history.append(("assistant", f"❌ Sorry, something went wrong while building your site:\n{exc}"))

@@ -40,155 +40,156 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 TEMPLATES_DIR = "templates"
 DATASET_PATH = "dataset.json"
 OUTPUT_DIR = "rendered_templates"
-TOTAL_TEMPLATES = 100
+TOTAL_TEMPLATES = 20
 
 # ── Style / colour → template group overrides ──────────────────────────────
 # If the user expresses a colour theme or design style, these mappings can
 # override (or fine-tune) the business-type group so the chosen template
 # better matches the user's visual preference.
 STYLE_OVERRIDES: dict[str, tuple[int, int]] = {
-    # Dark / moody palettes → food/amber group
-    "dark":         (1, 20),
-    "black":        (1, 20),
-    "warm":         (1, 20),
-    "amber":        (1, 20),
-    "earthy":       (1, 20),
-    "brown":        (1, 20),
-    # Clean / minimal → fitness/wellness group
-    "white":        (21, 40),
-    "minimal":      (21, 40),
-    "clean":        (21, 40),
-    "light":        (21, 40),
-    "pastel":       (21, 40),
-    # Vibrant / neon / bold → tech group
-    "neon":         (41, 60),
-    "vibrant":      (41, 60),
-    "colourful":    (41, 60),
-    "colorful":     (41, 60),
-    "bright":       (41, 60),
-    "bold":         (41, 60),
-    "gradient":     (41, 60),
-    "purple":       (41, 60),
-    "blue":         (41, 60),
-    "electric":     (41, 60),
-    # Card-grid / feminine → retail/beauty group
-    "pink":         (61, 80),
-    "rose":         (61, 80),
-    "gold":         (61, 80),
-    "luxury":       (61, 80),
-    "feminine":     (61, 80),
-    "elegant":      (61, 80),
-    # Editorial / professional → professional group
-    "professional": (81, 100),
-    "corporate":    (81, 100),
-    "editorial":    (81, 100),
-    "modern":       (81, 100),
-    "green":        (81, 100),
-    "teal":         (81, 100),
-    "navy":         (81, 100),
+    "blue":         (1, 1),
+    "red":          (2, 2),
+    "green":        (3, 3),
+    "pink":         (4, 4),
+    "orange":       (5, 5),
+    "violet":       (6, 6),
+    "teal":         (7, 7),
+    "indigo":       (8, 8),
+    "cyan":         (9, 9),
+    "lime":         (10, 10),
+    "amber":        (11, 11),
+    "magenta":      (12, 12),
+    "emerald":      (13, 13),
+    "slate":        (14, 14),
+    "coral":        (15, 15),
+    "navy":         (16, 16),
+    "purple":       (17, 17),
+    "gold":         (18, 18),
+    "rose":         (19, 19),
+    "black":        (20, 20),
+    # Style keywords
+    "dark":         (20, 20),
+    "white":        (14, 14),
+    "minimal":      (20, 20),
+    "clean":        (14, 14),
+    "light":        (14, 14),
+    "pastel":       (4, 4),
+    "neon":         (9, 9),
+    "vibrant":      (9, 9),
+    "colorful":     (17, 17),
+    "bright":       (9, 9),
+    "bold":         (2, 2),
+    "gradient":     (1, 1),
+    "luxury":       (6, 6),
+    "elegant":      (18, 18),
+    "professional": (8, 8),
+    "corporate":    (16, 16),
+    "editorial":    (14, 14),
+    "modern":       (1, 1),
 }
 
 # Business-type keyword → template group (1-indexed ranges)
 KEYWORD_GROUPS: dict[str, tuple[int, int]] = {
-    # food & beverage → Group A (1–20): dark warm/amber
-    "bakery":     (1, 20),
-    "cafe":       (1, 20),
-    "restaurant": (1, 20),
-    "food":       (1, 20),
-    "sweet":      (1, 20),
-    "juice":      (1, 20),
-    "hotel":      (1, 20),
-    "takeaway":   (1, 20),
-    "ice cream":  (1, 20),
-    "tiffin":     (1, 20),
-    "tea":        (1, 20),
-    "coffee":     (1, 20),
-    # fitness & wellness → Group B (21–40): minimal clean white
-    "gym":        (21, 40),
-    "fitness":    (21, 40),
-    "yoga":       (21, 40),
-    "health":     (21, 40),
-    "nutritionist": (21, 40),
-    "spa":        (21, 40),
-    "wellness":   (21, 40),
-    "martial":    (21, 40),
-    "sports":     (21, 40),
-    "dance":      (21, 40),
-    "dentist":    (21, 40),
-    "dental":     (21, 40),
-    "clinic":     (21, 40),
-    "pharmacy":   (21, 40),
-    "optician":   (21, 40),
-    "veterinary": (21, 40),
-    # tech & digital → Group C (41–60): vibrant neon
-    "tech":       (41, 60),
-    "it ":        (41, 60),
-    "software":   (41, 60),
-    "startup":    (41, 60),
-    "digital":    (41, 60),
-    "web":        (41, 60),
-    "developer":  (41, 60),
-    "design":     (41, 60),
-    "media":      (41, 60),
-    "agency":     (41, 60),
-    "content":    (41, 60),
-    "editor":     (41, 60),
-    "youtuber":   (41, 60),
-    "data":       (41, 60),
-    "ai ":        (41, 60),
-    # retail & beauty → Group D (61–80): card-grid bold
-    "salon":      (61, 80),
-    "boutique":   (61, 80),
-    "jewellery":  (61, 80),
-    "jewelry":    (61, 80),
-    "clothing":   (61, 80),
-    "fashion":    (61, 80),
-    "gift":       (61, 80),
-    "flower":     (61, 80),
-    "pet":        (61, 80),
-    "furniture":  (61, 80),
-    "electronics":(61, 80),
-    "mobile":     (61, 80),
-    "book":       (61, 80),
-    "music store":(61, 80),
-    "instrument": (61, 80),
-    "toy":        (61, 80),
-    "grocery":    (61, 80),
-    "fruit":      (61, 80),
-    "hardware":   (61, 80),
-    "print":      (61, 80),
-    # professional & other → Group E (81–100): editorial
-    "law":        (81, 100),
-    "accountan":  (81, 100),
-    "finance":    (81, 100),
-    "architect":  (81, 100),
-    "interior":   (81, 100),
-    "travel":     (81, 100),
-    "resort":     (81, 100),
-    "event":      (81, 100),
-    "school":     (81, 100),
-    "tuition":    (81, 100),
-    "coaching":   (81, 100),
-    "language":   (81, 100),
-    "music class":(81, 100),
-    "photography":(81, 100),
-    "studio":     (81, 100),
-    "tattoo":     (81, 100),
-    "laundry":    (81, 100),
-    "tailoring":  (81, 100),
-    "car":        (81, 100),
-    "recruitment":(81, 100),
-    "security":   (81, 100),
-    "library":    (81, 100),
-    "nursery":    (81, 100),
-    "landscaping":(81, 100),
-    "farm":       (81, 100),
-    "pottery":    (81, 100),
-    "antique":    (81, 100),
-    "life coach": (81, 100),
+    # Group 1: Blue - SaaS/Tech
+    "tech":         (1, 1),
+    "software":     (1, 1),
+    "startup":      (1, 1),
+    "ai ":          (1, 1),
+    "it ":          (1, 1),
+    # Group 2: Red - Bold Agency
+    "agency":       (2, 2),
+    "media":        (2, 2),
+    "creative":     (2, 2),
+    "design":       (2, 2),
+    "studio":       (2, 2),
+    # Group 3: Green - Eco/Health
+    "health":       (3, 3),
+    "nutritionist": (3, 3),
+    "organic":      (3, 3),
+    "eco":          (3, 3),
+    # Group 4: Pink - Beauty/Salon
+    "salon":        (4, 4),
+    "beauty":       (4, 4),
+    "fashion":      (4, 4),
+    "boutique":     (4, 4),
+    "clothing":     (4, 4),
+    # Group 5: Orange - Restaurant
+    "restaurant":   (5, 5),
+    "food":         (5, 5),
+    "cafe":         (5, 5),
+    "takeaway":     (5, 5),
+    # Group 6: Violet - Luxury Brand
+    "luxury":       (6, 6),
+    "hotel":        (6, 6),
+    # Group 7: Teal - Clinic/Spa
+    "spa":          (7, 7),
+    "wellness":     (7, 7),
+    "clinic":       (7, 7),
+    "dentist":      (7, 7),
+    "dental":       (7, 7),
+    "pharmacy":     (7, 7),
+    # Group 8: Indigo - Consulting
+    "consulting":   (8, 8),
+    "coaching":     (8, 8),
+    "advisor":      (8, 8),
+    # Group 9: Cyan - Digital/Web
+    "web":          (9, 9),
+    "digital":      (9, 9),
+    "developer":    (9, 9),
+    # Group 10: Lime - Gym/Fitness
+    "gym":          (10, 10),
+    "fitness":      (10, 10),
+    "sports":       (10, 10),
+    "martial":      (10, 10),
+    "dance":        (10, 10),
+    # Group 11: Amber - Bakery/Coffee
+    "bakery":       (11, 11),
+    "coffee":       (11, 11),
+    "tea":          (11, 11),
+    "sweet":        (11, 11),
+    # Group 12: Magenta - Events
+    "event":        (12, 12),
+    "entertainment":(12, 12),
+    "music store":  (12, 12),
+    # Group 13: Emerald - Finance/Law
+    "law":          (13, 13),
+    "attorney":     (13, 13),
+    "legal":        (13, 13),
+    "accountan":    (13, 13),
+    "finance":      (13, 13),
+    # Group 14: Slate - Architecture
+    "architect":    (14, 14),
+    "interior":     (14, 14),
+    # Group 15: Coral - Travel
+    "travel":       (15, 15),
+    "resort":       (15, 15),
+    # Group 16: Navy - Corporate
+    "corporate":    (16, 16),
+    "enterprise":   (16, 16),
+    "recruitment":  (16, 16),
+    "security":     (16, 16),
+    # Group 17: Purple - Creative/Music
+    "music class":  (17, 17),
+    "photography":  (17, 17),
+    "youtuber":     (17, 17),
+    "content":      (17, 17),
+    # Group 18: Gold - Jewelry/Retail
+    "jewellery":    (18, 18),
+    "jewelry":      (18, 18),
+    "antique":      (18, 18),
+    "watch":        (18, 18),
+    # Group 19: Rose - Floral/Gifting
+    "flower":       (19, 19),
+    "gift":         (19, 19),
+    "wedding":      (19, 19),
+    "nursery":      (19, 19),
+    # Group 20: Black - Fallback/Minimal
+    "life coach":   (20, 20),
+    "tattoo":       (20, 20),
+    "laundry":      (20, 20),
 }
 
-DEFAULT_GROUP = (81, 100)  # fallback for unrecognized business types
+DEFAULT_GROUP = (20, 20)  # fallback for unrecognized business types
 
 
 # ---------------------------------------------------------------------------
@@ -238,7 +239,7 @@ def choose_template(
 
     Returns
     -------
-    Relative path to the chosen template, e.g. "templates/template42.html"
+    Relative path to the chosen template, e.g. "templates/template42/index.html"
     """
     if not os.path.isdir(TEMPLATES_DIR):
         raise FileNotFoundError(
@@ -278,13 +279,12 @@ def choose_template(
         group_size = hi - lo + 1
         n = lo + (index % group_size)
 
-    template_name = f"template{n}.html"
-    template_path = os.path.join(TEMPLATES_DIR, template_name)
+    template_path = os.path.join(TEMPLATES_DIR, f"template{n}", "index.html")
 
     if not os.path.exists(template_path):
         raise FileNotFoundError(
             f"Template not found: {template_path!r}. "
-            "Run generate_templates.py first."
+            "Please run generate_templates.py or check folder content."
         )
 
     return template_path
@@ -319,6 +319,33 @@ def render_record(record: dict, template_path: str) -> str:
     context = {}
     context.update(gt)
     context.update(record)
+
+    # Inject safe defaults for nested dict structures to avoid Jinja UndefinedError
+    defaults = {
+        "brand": {"name": context.get("business_name", "Business Name"), "tagline": ""},
+        "hero": {
+            "title": context.get("business_name", "Business Name"),
+            "subtitle": f"Serving {context.get('city', 'your area')} with pride.",
+            "subtitle_short": "Excellence Defined",
+            "cta": {"text": "Get Started", "link": "#contact"}
+        },
+        "about": {
+            "title": "Why Choose Us",
+            "description": f"We are a leading provider in {context.get('city', 'your area')}.",
+            "features": ["Exceptional Quality", "Professional Team", "Proven Track Record"]
+        },
+        "footer": {
+            "about": f"Leading {context.get('business_type', 'business')} in {context.get('city', 'your area')}.",
+            "social": []
+        }
+    }
+    for key, val in defaults.items():
+        if key not in context or not isinstance(context[key], dict):
+            context[key] = val
+        else:
+            merged = val.copy()
+            merged.update(context[key])
+            context[key] = merged
 
     return tmpl.render(**context)
 
@@ -374,7 +401,16 @@ def run(
         with open(out_path, "w", encoding="utf-8") as f:
             f.write(html)
 
-        tmpl_used = os.path.basename(template_path)
+        # Copy styles.css and script.js from the chosen template directory
+        import shutil
+        template_dir = os.path.dirname(template_path)
+        for asset in ["styles.css", "script.js"]:
+            src = os.path.join(template_dir, asset)
+            dst = os.path.join(output_dir, asset)
+            if os.path.exists(src):
+                shutil.copy2(src, dst)
+
+        tmpl_used = os.path.basename(os.path.dirname(template_path))
         print(f"  [{i:04d}] {gt['business_name']!r:30s} -> {tmpl_used:<20s} -> {out_path}")
         output_files.append(out_path)
 

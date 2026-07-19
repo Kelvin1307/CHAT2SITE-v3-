@@ -1,5 +1,5 @@
 'use strict';
-/* ===== TEMPLATE 14 — SLATE ===== */
+/* ===== TEMPLATE 5 — ORANGE ===== */
 (function () {
   /* Nav scroll */
   const nav = document.querySelector('.nav');
@@ -80,5 +80,5 @@
     });
   });
 
-  console.log('[Template 14 — slate] Loaded ✓');
+  console.log('[Template 5 — orange] Loaded ✓');
 })();

@@ -5,6 +5,7 @@ import hashlib
 from dotenv import load_dotenv
 import requests
 from pathlib import Path
+import webbrowser
 
 try:
     import streamlit as st
@@ -106,54 +107,66 @@ def _create_site(business_name: str | None = None) -> dict:
 
 def deploy_site(folder: str, business_name: str | None = None) -> str:
     """
-    Deploys a folder to Netlify and returns the live URL
+    Deploys a folder to Netlify and returns the live URL.
+    If Netlify cannot be reached, it falls back to opening the local preview.
     """
 
-    # 1️⃣ Create site automatically
-    site = _create_site(business_name=business_name)
-    site_id = site["id"]
-    site_url = site["url"]
-
-    # 2️⃣ Collect files + hashes
-    files = {}
     base = Path(folder)
 
-    for path in base.rglob("*"):
-        if path.is_file():
-            rel = "/" + str(path.relative_to(base)).replace("\\", "/")
-            files[rel] = _sha1(path)
+    try:
+        # 1️⃣ Create site automatically
+        site = _create_site(business_name=business_name)
+        site_id = site["id"]
+        site_url = site["url"]
 
-    # 3️⃣ Create deploy
-    r = requests.post(
-        f"{NETLIFY_API}/sites/{site_id}/deploys",
-        headers=_headers(),
-        json={"files": files}
-    )
-    r.raise_for_status()
-    deploy = r.json()
+        # 2️⃣ Collect files + hashes
+        files = {}
+        for path in base.rglob("*"):
+            if path.is_file():
+                rel = "/" + str(path.relative_to(base)).replace("\\", "/")
+                files[rel] = _sha1(path)
 
-    deploy_id = deploy["id"]
-    required = deploy.get("required", [])
+        # 3️⃣ Create deploy
+        r = requests.post(
+            f"{NETLIFY_API}/sites/{site_id}/deploys",
+            headers=_headers(),
+            json={"files": files}
+        )
+        r.raise_for_status()
+        deploy = r.json()
 
-    # reverse map: hash → filepath
-    hash_to_path = {v: k for k, v in files.items()}
+        deploy_id = deploy["id"]
+        required = deploy.get("required", [])
 
-    for file_hash in required:
-        rel_path = hash_to_path.get(file_hash)
-        if not rel_path:
-            continue
+        # reverse map: hash → filepath
+        hash_to_path = {v: k for k, v in files.items()}
 
-        full_path = base / rel_path.lstrip("/")
-        if not full_path.exists():
-            continue
+        for file_hash in required:
+            rel_path = hash_to_path.get(file_hash)
+            if not rel_path:
+                continue
 
-        with open(full_path, "rb") as f:
-            requests.put(
-                f"{NETLIFY_API}/deploys/{deploy_id}/files/{file_hash}",
-                headers={"Authorization": f"Bearer {get_netlify_auth_token()}"},
-                data=f.read()
-            )
+            full_path = base / rel_path.lstrip("/")
+            if not full_path.exists():
+                continue
 
+            with open(full_path, "rb") as f:
+                requests.put(
+                    f"{NETLIFY_API}/deploys/{deploy_id}/files/{file_hash}",
+                    headers={"Authorization": f"Bearer {get_netlify_auth_token()}"},
+                    data=f.read()
+                )
 
-    return site_url
+        return site_url
+    except (requests.RequestException, RuntimeError, KeyError, ValueError) as exc:
+        index_file = base / "index.html"
+        if index_file.exists():
+            preview_path = index_file.resolve().as_uri()
+            try:
+                webbrowser.open(preview_path)
+            except Exception:
+                pass
+            return f"Local preview available at {preview_path} (Netlify publish skipped: {exc})"
+
+        return f"Local preview unavailable. Netlify publish failed: {exc}"
 

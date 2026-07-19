@@ -1,0 +1,42 @@
+[
+  {
+    "business_name": "SaaSify Tech",
+    "business_type": "software startup",
+    "city": "San Francisco",
+    "phone": "123-456-7890",
+    "email": "hello@saasify.io",
+    "color_theme": "blue",
+    "design_style": "modern SaaS",
+    "services": ["Cloud Infrastructure", "API Integrations", "AI Automation"]
+  },
+  {
+    "business_name": "Rosy Spa & Salon",
+    "business_type": "beauty salon spa",
+    "city": "New York",
+    "phone": "987-654-3210",
+    "email": "contact@rosysalon.com",
+    "color_theme": "pink",
+    "design_style": "elegant luxury",
+    "services": ["Hair Styling", "Facial Treatments", "Nail Art"]
+  },
+  {
+    "business_name": "Green Earth Organic Cafe",
+    "business_type": "bakery cafe",
+    "city": "Portland",
+    "phone": "555-0199",
+    "email": "info@greenearthcafe.com",
+    "color_theme": "green",
+    "design_style": "natural minimal",
+    "services": ["Organic Coffee", "Vegan Bakery", "Fresh Juices"]
+  },
+  {
+    "business_name": "Apex Fitness",
+    "business_type": "sports gym",
+    "city": "Austin",
+    "phone": "555-0288",
+    "email": "info@apexfitness.com",
+    "color_theme": "lime",
+    "design_style": "vibrant bold",
+    "services": ["Personal Training", "Group Cardio", "Strength Workouts"]
+  }
+]

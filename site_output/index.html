@@ -3,273 +3,259 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kings Dance Crew — Dance Class in Pududcheri, Chengalpattu</title>
-  <meta name="description" content="Kings Dance Crew is a Dance Class located in Pududcheri, Chengalpattu. Contact us at kdc5432@gmail.com or 9799889765.">
+  <title>Dream Spaces — interior design in Coimbatore</title>
+  <meta name="description" content="Dream Spaces: Premier interior design in Coimbatore. Your one-stop solution for all interior design needs">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'DM Serif Display', system-ui, sans-serif;
-      background: #1c1c1e;
-      color: #f0f0f0;
-      line-height: 1.6;
-    }
-    a { color: inherit; }
-
-    /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: #1c1c1e;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      padding: 0 40px;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 64px;
-      backdrop-filter: blur(10px);
-    }
-    .nav-brand {
-      font-size: 1.2rem; font-weight: 700;
-      color: #f0f0f0;
-      text-decoration: none;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .nav-brand::before {
-      content: '';
-      width: 10px; height: 10px;
-      background: #f5f5f0;
-      border-radius: 50%;
-      display: inline-block;
-    }
-    .nav-links { display: flex; gap: 28px; list-style: none; }
-    .nav-links a {
-      color: #aaaaaa; text-decoration: none;
-      font-size: 0.9rem; font-weight: 500;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: #f5f5f0; }
-    .nav-cta {
-      background: #f5f5f0; color: #1c1c1e;
-      padding: 8px 20px; border-radius: 6px;
-      text-decoration: none; font-weight: 600; font-size: 0.9rem;
-      transition: opacity 0.2s;
-    }
-    .nav-cta:hover { opacity: 0.85; }
-
-    /* FOOTER */
-    footer {
-      background: #2c2c2e;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding: 40px;
-      text-align: center;
-    }
-    footer p { color: #aaaaaa; font-size: 0.875rem; margin-top: 8px; }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav { padding: 0 20px; }
-      .nav-links { display: none; }
-      section[class] { padding: 40px 20px !important; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- NAV -->
-  <nav>
-    <a class="nav-brand" href="#">Kings Dance Crew</a>
+  
+  <nav class="nav" id="navbar">
+    <div class="nav-brand">
+      <div class="nav-logo">DR</div>
+      <span>Dream Spaces</span>
+    </div>
     <ul class="nav-links">
-      
-        
-        <li><a href="/home">Home</a></li>
-        
-        <li><a href="/services">Services</a></li>
-        
-        <li><a href="/about">About</a></li>
-        
-      
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#highlights">Work</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
-    <a class="nav-cta" href="mailto:kdc5432@gmail.com">Contact Us</a>
+    <a class="nav-cta" href="mailto:dreamspaces@gmail.com" id="nav-cta-t14">Contact Us</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#about">About</a><a href="#services">Services</a>
+    <a href="#highlights">Work</a><a href="#testimonials">Reviews</a><a href="#contact">Contact</a>
+    <a href="mailto:dreamspaces@gmail.com" style="color:var(--primary);">Contact Us →</a>
   </nav>
 
-
-  <section class="hero" style="background:linear-gradient(180deg,#1c1c1e,#2c2c2e);padding:80px 60px;display:flex;align-items:center;gap:60px;flex-wrap:wrap;">
-    <div style="flex:1;min-width:280px;">
-      <p class="badge" style="color:#f5f5f0;text-transform:uppercase;letter-spacing:2px;font-size:0.85rem;font-weight:600;">Dance Class</p>
-      <h1 style="color:#fff;font-size:clamp(2.2rem,5vw,3.5rem);margin:16px 0;line-height:1.15;">Unleash Your Dance Potential</h1>
-      <p style="color:rgba(255,255,255,0.8);font-size:1rem;line-height:1.7;margin-bottom:32px;">
-        Join our dance classes and learn from the best
-      </p>
-      <a href="/join" style="background:#f5f5f0;color:#1c1c1e;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700;display:inline-block;">Join Now</a>
-    </div>
-    <div style="flex:0 0 260px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:20px;padding:28px;backdrop-filter:blur(8px);">
-      <p style="color:rgba(255,255,255,0.6);font-size:0.8rem;margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;">Quick Info</p>
-      <div style="color:#fff;display:flex;flex-direction:column;gap:10px;font-size:0.95rem;">
-        <span>📍 Pududcheri, Chengalpattu</span>
-        <span>📞 9799889765</span>
-        <span>✉️ kdc5432@gmail.com</span>
+  <section class="hero" id="home">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">interior design</div>
+      <h1 class="hero-title">
+        Welcome to Dream Spaces<br>
+        <span class="hero-accent">Excellence Defined</span>
+      </h1>
+      <p class="hero-sub">Your one-stop solution for all interior design needs</p>
+      <div class="hero-actions">
+        <a href="/contact" class="btn-primary" id="hero-cta-t14">Get Started →</a>
+        <a href="#services" class="btn-ghost" id="hero-services-t14">Our Services</a>
       </div>
     </div>
   </section>
 
-  
-  <section style="padding:60px 40px;background:#2c2c2e;">
-    <h2 style="color:#f5f5f0;font-size:1.8rem;margin-bottom:8px;text-align:center;">Categories</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px;max-width:900px;margin:24px auto 0;">
-      
-      <div style="background:#1c1c1e;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:16px;text-align:center;">
-        
-        <img src="western-dance.jpg" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:10px;" />
-        
-        <p style="color:#f0f0f0;font-weight:600;font-size:0.9rem;">Western Dance</p>
+  <section class="section" id="about">
+    <div class="about-grid">
+      <div class="about-visual-box reveal">
+        <div class="about-big-icon">🏗️</div>
+        <div class="about-visual-stat">
+          <div class="about-visual-num counter">500+</div>
+          <div class="about-visual-label">Happy Clients</div>
+        </div>
       </div>
-      
-      <div style="background:#1c1c1e;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:16px;text-align:center;">
-        
-        <img src="hip-hop.jpg" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:10px;" />
-        
-        <p style="color:#f0f0f0;font-weight:600;font-size:0.9rem;">Hip Hop</p>
+      <div class="reveal reveal-d2">
+        <span class="section-eyebrow">About Us</span>
+        <h2 class="section-title">Why Choose Us</h2>
+        <p class="section-sub">We are a leading provider in Coimbatore.</p>
+        <div class="about-list">
+          
+          
+          <div class="about-item">
+            <div class="about-item-icon">🏗️</div>
+            <div>
+              
+              <strong>Exceptional Quality</strong>
+              
+            </div>
+          </div>
+          
+          <div class="about-item">
+            <div class="about-item-icon">📐</div>
+            <div>
+              
+              <strong>Professional Team</strong>
+              
+            </div>
+          </div>
+          
+          <div class="about-item">
+            <div class="about-item-icon">🏛️</div>
+            <div>
+              
+              <strong>Proven Track Record</strong>
+              
+            </div>
+          </div>
+          
+        </div>
+        <div style="margin-top:32px;">
+          <a href="#contact" class="btn-primary" id="about-cta-t14">Work With Us →</a>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="services" style="border-top:1px solid var(--border);">
+    <div class="section-header centered reveal">
+      <span class="section-eyebrow">Services</span>
+      <h2 class="section-title">What We Offer</h2>
+      <p class="section-sub">Expert interior design services delivered with care and precision.</p>
+    </div>
+    <div class="services-grid">
+      
+        
+        <div class="service-card reveal reveal-d2">
+          <div class="svc-icon">🏗️</div>
+          <h3 class="svc-name">home design</h3>
+          <p class="svc-desc">Professional home design with proven results.</p>
+        </div>
+        
+        <div class="service-card reveal reveal-d3">
+          <div class="svc-icon">📐</div>
+          <h3 class="svc-name">office design</h3>
+          <p class="svc-desc">Professional office design with proven results.</p>
+        </div>
+        
+        <div class="service-card reveal reveal-d1">
+          <div class="svc-icon">🏛️</div>
+          <h3 class="svc-name">modular kitchen design</h3>
+          <p class="svc-desc">Professional modular kitchen design with proven results.</p>
+        </div>
+        
       
     </div>
   </section>
-  
 
-  
-  <section style="padding:60px 40px;background:#1c1c1e;">
-    <h2 style="color:#f5f5f0;font-size:1.8rem;margin-bottom:8px;text-align:center;">Our Products</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:24px;max-width:1000px;margin:24px auto 0;">
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
       
-      <div style="background:#2c2c2e;border:1px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
+        <div><div class="stat-num counter">500+</div><div class="stat-label">Clients Served</div></div>
+        <div><div class="stat-num counter">98%</div><div class="stat-label">Satisfaction Rate</div></div>
+        <div><div class="stat-num counter">10+</div><div class="stat-label">Years Experience</div></div>
+        <div><div class="stat-num counter">50+</div><div class="stat-label">Team Experts</div></div>
+      
+    </div>
+  </div>
+
+  <section class="section" id="highlights">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Featured Work</span>
+      <h2 class="section-title">Our Best <span style="color:var(--primary);">Projects</span></h2>
+    </div>
+    <div class="cards-grid">
+      <div class="feature-card reveal">
+        <div class="fc-label">Featured Project</div>
+        <div class="fc-title">interior design<br>Transformation</div>
+        <div class="fc-tag">View Project →</div>
+      </div>
+      <div class="feature-card reveal reveal-d1">
+        <div class="fc-label">Case Study</div>
+        <div class="fc-title">Growth &amp;<br>Strategy</div>
+        <div class="fc-tag">Explore →</div>
+      </div>
+      <div class="feature-card reveal reveal-d2">
+        <div class="fc-label">Success Story</div>
+        <div class="fc-title">Delivered in<br>Coimbatore</div>
+        <div class="fc-tag">Learn More →</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials" style="border-top:1px solid var(--border);">
+    <div class="section-header centered reveal">
+      <span class="section-eyebrow">Testimonials</span>
+      <h2 class="section-title">What Clients <span style="color:var(--primary);">Say</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      
         
-        <img src="dance-classes.jpg" style="width:100%;height:180px;object-fit:cover;" />
-        
-        <div style="padding:16px;flex-grow:1;display:flex;flex-direction:column;gap:8px;">
-          <span style="font-size:0.75rem;color:#f5f5f0;text-transform:uppercase;">Western Dance</span>
-          <h3 style="color:#f0f0f0;font-size:1.05rem;font-weight:600;margin:0;">Dance Classes</h3>
-          <p style="color:#aaaaaa;font-size:0.85rem;line-height:1.4;margin:0;flex-grow:1;">Learn various dance styles from our expert instructors</p>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;">
-            <span style="font-weight:700;color:#f0f0f0;">INR500</span>
-            
-            <span style="color:#ffd700;font-size:0.9rem;">★ 4.5</span>
-            
+        <div class="tcard reveal reveal-d1">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Outstanding service. They exceeded every expectation we had."</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">A</div>
+            <div><div class="tcard-name">Alex Johnson</div><div class="tcard-role">CEO, ProCo</div></div>
           </div>
         </div>
-      </div>
-      
-    </div>
-  </section>
-  
-
-  <section style="padding:60px 40px;background:#1c1c1e;">
-    <h2 style="color:#f5f5f0;font-size:1.8rem;margin-bottom:8px;text-align:center;">What We Offer</h2>
-    <p style="color:#aaaaaa;text-align:center;margin-bottom:40px;font-size:0.95rem;">Expert services tailored to your needs.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;max-width:900px;margin:0 auto;">
-      
         
-        <div style="background:#2c2c2e;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;text-align:center;">
-          <div style="font-size:2rem;margin-bottom:12px;">🔧</div>
-          <p style="color:#f0f0f0;font-weight:600;font-size:0.95rem;">Western</p>
+        <div class="tcard reveal reveal-d2">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Professional, creative, and incredibly talented. Highly recommended!"</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">M</div>
+            <div><div class="tcard-name">Maria Santos</div><div class="tcard-role">Director, Bloom</div></div>
+          </div>
         </div>
         
-        <div style="background:#2c2c2e;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;text-align:center;">
-          <div style="font-size:2rem;margin-bottom:12px;">🔧</div>
-          <p style="color:#f0f0f0;font-weight:600;font-size:0.95rem;">Locking</p>
-        </div>
-        
-        <div style="background:#2c2c2e;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;text-align:center;">
-          <div style="font-size:2rem;margin-bottom:12px;">🔧</div>
-          <p style="color:#f0f0f0;font-weight:600;font-size:0.95rem;">Hip Hop</p>
-        </div>
-        
-        <div style="background:#2c2c2e;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;text-align:center;">
-          <div style="font-size:2rem;margin-bottom:12px;">🔧</div>
-          <p style="color:#f0f0f0;font-weight:600;font-size:0.95rem;">Wacking</p>
-        </div>
-        
-        <div style="background:#2c2c2e;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;text-align:center;">
-          <div style="font-size:2rem;margin-bottom:12px;">🔧</div>
-          <p style="color:#f0f0f0;font-weight:600;font-size:0.95rem;">Free Style</p>
+        <div class="tcard reveal reveal-d3">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"The best decision we made. Results speak for themselves."</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">D</div>
+            <div><div class="tcard-name">David Kim</div><div class="tcard-role">Founder, Rise</div></div>
+          </div>
         </div>
         
       
     </div>
-    
   </section>
 
-  
-  <section style="padding:60px 40px;background:#2c2c2e;">
-    <h2 style="color:#f5f5f0;font-size:1.8rem;text-align:center;margin-bottom:8px;">Special Deals</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px;max-width:900px;margin:24px auto 0;">
-      
-      <div style="background:#1c1c1e;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;">
-        
-        <span style="position:absolute;top:12px;right:12px;background:#e53935;color:#fff;padding:2px 8px;border-radius:4px;font-size:0.75rem;font-weight:700;">
-          10% OFF
-        </span>
-        
-        <h3 style="color:#f0f0f0;font-size:1.1rem;font-weight:600;margin:0 60px 0 0;">Summer Discount</h3>
-        <p style="color:#aaaaaa;font-size:0.85rem;line-height:1.4;margin:0;">Get 10% off on all dance classes this summer</p>
-        
-        <img src="summer-discount.jpg" style="width:100%;height:140px;object-fit:cover;border-radius:8px;" />
-        
-      </div>
-      
+  <div class="cta-box reveal" id="cta">
+    <span class="section-eyebrow" style="display:block;margin-bottom:14px;">Let's Connect</span>
+    <h2 class="cta-title">Ready to Work with<br><span style="color:var(--primary);">Dream Spaces</span>?</h2>
+    <p class="cta-sub">Coimbatore-based interior design. Get in touch and let's create something exceptional together.</p>
+    <div class="cta-btns">
+      <a href="mailto:dreamspaces@gmail.com" class="btn-primary" id="cta-t14-email">Email Us →</a>
+      <a href="tel:9123987654" class="btn-ghost" id="cta-t14-phone">9123987654</a>
     </div>
-  </section>
-  
+  </div>
 
-  <section style="padding:60px 40px;background:#1c1c1e;">
-    <h2 style="color:#f5f5f0;font-size:1.8rem;text-align:center;margin-bottom:40px;">Get In Touch</h2>
-    <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;max-width:800px;margin:0 auto;">
-      <div style="background:#2c2c2e;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:28px;flex:1;min-width:200px;text-align:center;">
-        <div style="font-size:2rem;margin-bottom:12px;">📍</div>
-        <p style="color:#aaaaaa;font-size:0.85rem;margin-bottom:6px;">Location</p>
-        <p style="color:#f0f0f0;font-weight:600;">Pududcheri, Chengalpattu</p>
+  <footer class="site-footer" id="contact">
+    <div class="footer-row">
+      <div>
+        <div class="footer-brand-name">Dream Spaces</div>
+        <p class="footer-brand-desc">Dream Spaces is a leading interior design firm based in Coimbatore. We specialize in providing modern and elegant design solutions for residential and commercial spaces.</p>
+        <div class="footer-contact">
+          <div class="footer-contact-item">📍 Coimbatore</div>
+          <div class="footer-contact-item">📞 <a href="tel:9123987654">9123987654</a></div>
+          <div class="footer-contact-item">✉️ <a href="mailto:dreamspaces@gmail.com">dreamspaces@gmail.com</a></div>
+        </div>
       </div>
-      <div style="background:#2c2c2e;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:28px;flex:1;min-width:200px;text-align:center;">
-        <div style="font-size:2rem;margin-bottom:12px;">📞</div>
-        <p style="color:#aaaaaa;font-size:0.85rem;margin-bottom:6px;">Phone</p>
-        <a href="tel:9799889765" style="color:#f5f5f0;font-weight:600;text-decoration:none;">9799889765</a>
+      <div class="footer-col">
+        <div class="footer-col-head">Services</div>
+        <ul>
+          <li><a href="#services">home design</a></li><li><a href="#services">office design</a></li><li><a href="#services">modular kitchen design</a></li>
+        </ul>
       </div>
-      <div style="background:#2c2c2e;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:28px;flex:1;min-width:200px;text-align:center;">
-        <div style="font-size:2rem;margin-bottom:12px;">✉️</div>
-        <p style="color:#aaaaaa;font-size:0.85rem;margin-bottom:6px;">Email</p>
-        <a href="mailto:kdc5432@gmail.com" style="color:#f5f5f0;font-weight:600;text-decoration:none;word-break:break-all;">kdc5432@gmail.com</a>
+      <div class="footer-col">
+        <div class="footer-col-head">Company</div>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#highlights">Portfolio</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Connect</div>
+        <ul>
+          
+          <li><a href="#">{&#39;label&#39;: &#39;Facebook&#39;, &#39;link&#39;: &#39;https://www.facebook.com/dreamspaces&#39;}</a></li><li><a href="#">{&#39;label&#39;: &#39;Instagram&#39;, &#39;link&#39;: &#39;https://www.instagram.com/dreamspaces&#39;}</a></li><li><a href="#">{&#39;label&#39;: &#39;Twitter&#39;, &#39;link&#39;: &#39;https://www.twitter.com/dreamspaces&#39;}</a></li>
+          
+        </ul>
       </div>
     </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <strong style="color:#f0f0f0;font-size:1.05rem;">Kings Dance Crew</strong>
-    
-    <p style="max-width:600px;margin:10px auto;line-height:1.6;color:#aaaaaa;font-size:0.9rem;">Kings Dance Crew is a leading dance academy in Pududcheri, Chengalpattu. We offer a wide range of dance services to cater to your needs.</p>
-    
-    <p style="margin-top:8px;">Dance Class &bull; Pududcheri, Chengalpattu</p>
-    <p style="margin-top:16px;">
-      📞 <a href="tel:9799889765" style="color:#f5f5f0;text-decoration:none;">9799889765</a>
-      &nbsp;&nbsp;|&nbsp;&nbsp;
-      ✉️ <a href="mailto:kdc5432@gmail.com" style="color:#f5f5f0;text-decoration:none;">kdc5432@gmail.com</a>
-    </p>
-    
-    
-    
-    <p style="margin-top:12px;">
-      
-      
-      <a href="#" style="color:#f5f5f0;text-decoration:none;margin:0 8px;">{&#39;label&#39;: &#39;Facebook&#39;, &#39;link&#39;: &#39;https://www.facebook.com/kingsdancecrew&#39;}</a>
-      
-      
-      
-      <a href="#" style="color:#f5f5f0;text-decoration:none;margin:0 8px;">{&#39;label&#39;: &#39;Instagram&#39;, &#39;link&#39;: &#39;https://www.instagram.com/kingsdancecrew&#39;}</a>
-      
-      
-    </p>
-    
-    
-    <p style="margin-top:20px;">2024 Kings Dance Crew. All rights reserved.</p>
+    <div class="footer-bottom">
+      <span>2024 Dream Spaces. All rights reserved.</span>
+      <span>interior design · Coimbatore</span>
+    </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ brand.name or business_name }} — {{ business_type }} in {{ city }}</title>
+  <meta name="description" content="{{ brand.name or business_name }}: Premier {{ business_type }} in {{ city }}. {{ hero.subtitle or 'Excellence redefined.' }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  {% set icons_list = ["🏢","💼","📊","🤝","🎯","🌐","🏆","✓"] %}
+  <nav class="nav" id="navbar">
+    <div class="nav-brand">
+      <div class="nav-logo">{{ (brand.name or business_name)[:2]|upper }}</div>
+      <span>{{ brand.name or business_name }}</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#highlights">Work</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="mailto:{{ email }}" id="nav-cta-t16">Contact Us</a>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#about">About</a><a href="#services">Services</a>
+    <a href="#highlights">Work</a><a href="#testimonials">Reviews</a><a href="#contact">Contact</a>
+    <a href="mailto:{{ email }}" style="color:var(--primary);">Contact Us →</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">{{ business_type }}</div>
+      <h1 class="hero-title">
+        {{ hero.title or (brand.name or business_name) }}<br>
+        <span class="hero-accent">{{ hero.subtitle_short or 'Excellence Defined' }}</span>
+      </h1>
+      <p class="hero-sub">{{ hero.subtitle or ('Leading ' ~ business_type ~ ' in ' ~ city ~ '. We deliver exceptional results with passion and expertise.') }}</p>
+      <div class="hero-actions">
+        <a href="{{ hero.cta.link or ('mailto:' ~ email) }}" class="btn-primary" id="hero-cta-t16">{{ hero.cta.text or 'Get Started' }} →</a>
+        <a href="#services" class="btn-ghost" id="hero-services-t16">Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="about-grid">
+      <div class="about-visual-box reveal">
+        <div class="about-big-icon">🏢</div>
+        <div class="about-visual-stat">
+          <div class="about-visual-num counter">500+</div>
+          <div class="about-visual-label">Happy Clients</div>
+        </div>
+      </div>
+      <div class="reveal reveal-d2">
+        <span class="section-eyebrow">About Us</span>
+        <h2 class="section-title">{{ about.title or ('Why Choose Us') }}</h2>
+        <p class="section-sub">{{ about.description or ('We are ' ~ (brand.name or business_name) ~ ', a dedicated ' ~ business_type ~ ' in ' ~ city ~ '. Our mission is to deliver outstanding quality and lasting value.') }}</p>
+        <div class="about-list">
+          {% set feats = about.features if about and about.features else ['Exceptional Quality', 'Expert Team', 'Proven Results', 'Client-First Approach'] %}
+          {% for feat in feats %}
+          <div class="about-item">
+            <div class="about-item-icon">{{ icons_list[loop.index0 % icons_list|length] }}</div>
+            <div>
+              {% if feat is mapping %}
+              <strong>{{ feat.title or feat.name }}</strong>
+              <p>{{ feat.description or '' }}</p>
+              {% else %}
+              <strong>{{ feat }}</strong>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div style="margin-top:32px;">
+          <a href="#contact" class="btn-primary" id="about-cta-t16">Work With Us →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services" style="border-top:1px solid var(--border);">
+    <div class="section-header centered reveal">
+      <span class="section-eyebrow">Services</span>
+      <h2 class="section-title">{{ services.title if services is mapping else 'What We Offer' }}</h2>
+      <p class="section-sub">{{ services.description if services is mapping else ('Expert ' ~ business_type ~ ' services delivered with care and precision.') }}</p>
+    </div>
+    <div class="services-grid">
+      {% if services is mapping %}
+        {% for svc in services.features %}
+        <div class="service-card reveal reveal-d{{ (loop.index % 3) + 1 }}">
+          <div class="svc-icon">{{ icons_list[loop.index0 % icons_list|length] }}</div>
+          <h3 class="svc-name">{{ svc }}</h3>
+          <p class="svc-desc">Premium {{ svc|lower }} solutions tailored to your business needs.</p>
+        </div>
+        {% endfor %}
+      {% else %}
+        {% for svc in services %}
+        <div class="service-card reveal reveal-d{{ (loop.index % 3) + 1 }}">
+          <div class="svc-icon">{{ icons_list[loop.index0 % icons_list|length] }}</div>
+          <h3 class="svc-name">{{ svc }}</h3>
+          <p class="svc-desc">Professional {{ svc|lower }} with proven results.</p>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </section>
+
+  <div class="stats-bar">
+    <div class="stats-bar-inner">
+      {% if services is mapping and services.stats %}
+        {% for label,val in services.stats.items() %}
+        <div><div class="stat-num counter">{{ val }}</div><div class="stat-label">{{ label.replace('_',' ') }}</div></div>
+        {% endfor %}
+      {% else %}
+        <div><div class="stat-num counter">500+</div><div class="stat-label">Clients Served</div></div>
+        <div><div class="stat-num counter">98%</div><div class="stat-label">Satisfaction Rate</div></div>
+        <div><div class="stat-num counter">10+</div><div class="stat-label">Years Experience</div></div>
+        <div><div class="stat-num counter">50+</div><div class="stat-label">Team Experts</div></div>
+      {% endif %}
+    </div>
+  </div>
+
+  <section class="section" id="highlights">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Featured Work</span>
+      <h2 class="section-title">Our Best <span style="color:var(--primary);">Projects</span></h2>
+    </div>
+    <div class="cards-grid">
+      <div class="feature-card reveal">
+        <div class="fc-label">Featured Project</div>
+        <div class="fc-title">{{ business_type }}<br>Transformation</div>
+        <div class="fc-tag">View Project →</div>
+      </div>
+      <div class="feature-card reveal reveal-d1">
+        <div class="fc-label">Case Study</div>
+        <div class="fc-title">Growth &amp;<br>Strategy</div>
+        <div class="fc-tag">Explore →</div>
+      </div>
+      <div class="feature-card reveal reveal-d2">
+        <div class="fc-label">Success Story</div>
+        <div class="fc-title">Delivered in<br>{{ city }}</div>
+        <div class="fc-tag">Learn More →</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials" style="border-top:1px solid var(--border);">
+    <div class="section-header centered reveal">
+      <span class="section-eyebrow">Testimonials</span>
+      <h2 class="section-title">What Clients <span style="color:var(--primary);">Say</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      {% if testimonials %}
+        {% for t in testimonials %}
+        <div class="tcard reveal reveal-d{{ loop.index }}">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"{{ t.quote or t.text or t }}"</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">{{ (t.name or 'C')[:1]|upper }}</div>
+            <div><div class="tcard-name">{{ t.name or 'Happy Client' }}</div><div class="tcard-role">{{ t.role or 'Customer' }}</div></div>
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+        {% for t in [
+          {'name':'Alex Johnson','role':'CEO, ProCo','text':'Outstanding service. They exceeded every expectation we had.'},
+          {'name':'Maria Santos','role':'Director, Bloom','text':'Professional, creative, and incredibly talented. Highly recommended!'},
+          {'name':'David Kim','role':'Founder, Rise','text':'The best decision we made. Results speak for themselves.'}
+        ] %}
+        <div class="tcard reveal reveal-d{{ loop.index }}">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"{{ t.text }}"</p>
+          <div class="tcard-author">
+            <div class="tcard-avatar">{{ t.name[:1] }}</div>
+            <div><div class="tcard-name">{{ t.name }}</div><div class="tcard-role">{{ t.role }}</div></div>
+          </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </section>
+
+  <div class="cta-box reveal" id="cta">
+    <span class="section-eyebrow" style="display:block;margin-bottom:14px;">Let's Connect</span>
+    <h2 class="cta-title">Ready to Work with<br><span style="color:var(--primary);">{{ brand.name or business_name }}</span>?</h2>
+    <p class="cta-sub">{{ city }}-based {{ business_type }}. Get in touch and let's create something exceptional together.</p>
+    <div class="cta-btns">
+      <a href="mailto:{{ email }}" class="btn-primary" id="cta-t16-email">Email Us →</a>
+      <a href="tel:{{ phone }}" class="btn-ghost" id="cta-t16-phone">{{ phone or 'Call Now' }}</a>
+    </div>
+  </div>
+
+  <footer class="site-footer" id="contact">
+    <div class="footer-row">
+      <div>
+        <div class="footer-brand-name">{{ brand.name or business_name }}</div>
+        <p class="footer-brand-desc">{{ footer.about if footer and footer.about else ('Premier ' ~ business_type ~ ' in ' ~ city ~ '.') }}</p>
+        <div class="footer-contact">
+          <div class="footer-contact-item">📍 {{ city }}</div>
+          <div class="footer-contact-item">📞 <a href="tel:{{ phone }}">{{ phone }}</a></div>
+          <div class="footer-contact-item">✉️ <a href="mailto:{{ email }}">{{ email }}</a></div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Services</div>
+        <ul>
+          {% if services is mapping %}{% for s in services.features[:4] %}<li><a href="#services">{{ s }}</a></li>{% endfor %}
+          {% else %}{% for s in services[:4] %}<li><a href="#services">{{ s }}</a></li>{% endfor %}{% endif %}
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Company</div>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#highlights">Portfolio</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-head">Connect</div>
+        <ul>
+          {% set socials = (footer.social or footer.socials or []) if footer else [] %}
+          {% if socials %}{% for s in socials %}<li><a href="{{ s.url or '#' }}">{{ s.platform or s }}</a></li>{% endfor %}
+          {% else %}<li><a href="#">LinkedIn</a></li><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li>{% endif %}
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>{{ (footer.copyright if footer and footer.copyright else '© 2026 ' ~ (brand.name or business_name) ~ '. All rights reserved.') }}</span>
+      <span>{{ business_type }} · {{ city }}</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

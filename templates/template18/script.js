@@ -1,5 +1,5 @@
 'use strict';
-/* ===== TEMPLATE 14 — SLATE ===== */
+/* ===== TEMPLATE 18 — GOLD ===== */
 (function () {
   /* Nav scroll */
   const nav = document.querySelector('.nav');
@@ -80,5 +80,5 @@
     });
   });
 
-  console.log('[Template 14 — slate] Loaded ✓');
+  console.log('[Template 18 — gold] Loaded ✓');
 })();

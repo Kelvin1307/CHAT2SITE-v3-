@@ -33,6 +33,16 @@ def render_page(
         with open(out_path, "w", encoding="utf-8") as f:
             f.write(html)
 
+        # Copy styles.css and script.js from the chosen template directory
+        import shutil
+        template_dir = os.path.dirname(chosen)
+        for asset in ["styles.css", "script.js"]:
+            src = os.path.join(template_dir, asset)
+            dst = os.path.join(output_dir, asset)
+            if os.path.exists(src):
+                shutil.copy2(src, dst)
+                print(f"[OK] Copied asset {asset} -> {dst}")
+
         print(f"[OK] HTML generated -> {out_path}  (template: {chosen})")
         return output_dir
 
